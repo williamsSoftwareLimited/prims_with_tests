@@ -3,6 +3,9 @@ export declare class Graph {
     numberOfEdges: number;
     adjacencyLists: any;
     constructGraph(graphJson: any): void;
-    addEdge(v: number, w: number): void;
-    adjacentVertices(v: number): any;
+    addEdge(v: string, w: string): void;
+    addOneWayEdge(v: string, w: string): void;
+    vertexExists(v: string): boolean;
+    adjacentVertices(v: string): [];
+    toString(): string;
 }

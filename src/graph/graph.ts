@@ -5,16 +5,35 @@ export class Graph {
     constructGraph(graphJson: any){
         //todo:
     }
-    addEdge(v: number, w: number){
-
-        if (!this.adjacencyLists[v]) {
+    addEdge(v: string, w: string){
+        if (v===w) return;
+        this.addOneWayEdge(v, w);
+        this.addOneWayEdge(w, v);
+        this.numberOfEdges++;
+    }
+    addOneWayEdge(v:string, w: string){
+        if (!this.vertexExists(v)) {
             this.adjacencyLists.push(v);
             this.adjacencyLists[v]=[];
         }
-        this.adjacencyLists[v].push(w);
-        this.numberOfEdges++;
+        if (!this.adjacentVertices(v).find(p=>p===w))
+            this.adjacencyLists[v].push(w);
     }
-    adjacentVertices(v: number){
+    vertexExists(v: string):boolean{
+        return this.adjacencyLists[v]!==undefined;
+    }
+    adjacentVertices(v: string): []{
         return this.adjacencyLists[v];
+    }
+    toString(): string{
+        let s: string ="";
+        this.adjacencyLists.forEach(vertex => {
+            s+=vertex+": ";
+            this.adjacentVertices(vertex).forEach(adjVertex => {
+                s+=adjVertex+" ";
+            });
+            s+="; ";
+        });
+        return s;
     }
 }

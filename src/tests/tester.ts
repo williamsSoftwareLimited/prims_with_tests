@@ -10,12 +10,12 @@ export class Tester {
             console.log(this.className + "failed - couldn't create");
         }
     }
-    compareNumber (actualValue: number, expectedValue: number, message: string = "") {
+    compareString(actualString: string, expectedString: string, message: string = "") {
         let fullMessage: string = `${this.className}: ${message} `;
-        if (actualValue === expectedValue){
-            console.log(fullMessage + "successful, actual="+actualValue+" equals expected="+expectedValue);
+        if (actualString === expectedString){
+            console.log(fullMessage + "successful, actual="+actualString+" equals expected="+expectedString);
         } else {
-            console.log(fullMessage + "failed, actual="+actualValue+" equals expected="+expectedValue);
+            console.log(fullMessage + "failed, actual="+actualString+" equals expected="+expectedString);
         }  
     }
     compareArray (actualValue: any, expectedValue: any, message: string = "") {
@@ -33,5 +33,45 @@ export class Tester {
             }  
         }
         
+    }
+    isTrue(expected2BTrue: boolean, message: string) {
+        let fullMessage: string = `${this.className}: ${message} `;
+        if (expected2BTrue===true){
+            console.log(fullMessage + "success, is true");
+        } else {
+            console.log(fullMessage + "failed, is false");
+        }  
+    }
+    isFalse(expected2BFalse: boolean, message: string) {
+        let fullMessage: string = `${this.className}: ${message} `;
+        if (expected2BFalse===false){
+            console.log(fullMessage + "success, is false");
+        } else {
+            console.log(fullMessage + "failed, is true");
+        }  
+    }
+    equalTo (actualValue: number, expectedValue: number, message: string = "") {
+        let fullMessage: string = `${this.className}: ${message} `;
+        if (actualValue === expectedValue){
+            console.log(fullMessage + "successful, actual="+actualValue+" equals expected="+expectedValue);
+        } else {
+            console.log(fullMessage + "failed, actual="+actualValue+" equals expected="+expectedValue);
+        }  
+    }
+    moreThan(actualValue: number, expectedValue: number, message: string="") {
+        let fullMessage: string = `${this.className}: ${message} `;
+        if (actualValue > expectedValue){
+            console.log(fullMessage + "successful, actual="+actualValue+" is more than expected="+expectedValue);
+        } else {
+            console.log(fullMessage + "failed, actual="+actualValue+" is less than expected="+expectedValue);
+        }   
+    }
+    lessThan(actualValue: number, expectedValue: number, message: string="") {
+        let fullMessage: string = `${this.className}: ${message} `;
+        if (actualValue < expectedValue){
+            console.log(fullMessage + "successful, actual="+actualValue+" is less than expected="+expectedValue);
+        } else {
+            console.log(fullMessage + "failed, actual="+actualValue+" is more than expected="+expectedValue);
+        }   
     }
 }
