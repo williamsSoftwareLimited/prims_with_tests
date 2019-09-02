@@ -20,6 +20,7 @@
         "build": "npm run build:types && npm run build:js",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-        "bundle": "webpack"
+        "bundle": "webpack",
+        "test": "npm run build && npm run bundle && node dist/app.bundle.js"
     }
 }
