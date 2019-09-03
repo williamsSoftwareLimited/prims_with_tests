@@ -3,7 +3,9 @@ export class Graph {
     numberOfEdges: number=0;
     adjacencyLists: any=[];    
     constructGraph(graphJson: any){
-        //todo:
+        graphJson.edges.forEach(edge => {
+            this.addEdge(edge.fromVertex, edge.toVertex);
+        });
     }
     addEdge(v: string, w: string){
         if (v===w) return;
