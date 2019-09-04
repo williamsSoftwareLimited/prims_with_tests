@@ -34,7 +34,7 @@ export class Tester {
         this.comparisons(() => expected2BFalse===false, message, "is false");
     }
     equalTo (actualValue: number, expectedValue: number, message: string = "") { 
-        this.comparisons(() => actualValue === expectedValue, message, "actual="+actualValue+" equals expected="+expectedValue)
+        this.comparisons(() => actualValue === expectedValue, message, "actual="+actualValue+" equals expected="+expectedValue);
     }
     moreThan(actualValue: number, expectedValue: number, message: string="") {  
         this.comparisons(() => actualValue > expectedValue, message, "actual="+actualValue+" is more than expected="+expectedValue);
@@ -44,7 +44,7 @@ export class Tester {
 
     }
     private comparisons(func: any, message: string, actualExpected: string="") {
-        if (func){
+        if (func()){
             console.log(this.fullMessage(message) + `successful, ${actualExpected}`);
         } else {
             console.log(this.fullMessage(message) + `failed, ${actualExpected}`);

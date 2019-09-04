@@ -2,7 +2,7 @@ import { Graph } from "../graph/graph";
 import { Tester } from "./tester";
 
 export class GraphTests {
-    runTests () {
+    static runTests () {
         var graph = new Graph();
         var tester = new Tester("Graph");
         graph.addEdge("a", "c");

@@ -1,3 +1,3 @@
 export declare class GraphTests {
-    runTests(): void;
+    static runTests(): void;
 }

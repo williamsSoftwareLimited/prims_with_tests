@@ -13,7 +13,7 @@ export class Graph {
         this.addOneWayEdge(w, v);
         this.numberOfEdges++;
     }
-    addOneWayEdge(v:string, w: string){
+    addOneWayEdge(v: string, w: string){
         if (!this.vertexExists(v)) {
             this.adjacencyLists.push(v);
             this.adjacencyLists[v]=[];
