@@ -1,7 +1,8 @@
 import { Graph } from "../graph/graph";
 import { FTester } from "./fTester";
+import { DepthFirstSearch } from "../graph/depthFirstSearch";
 
-export class BfsTests {
+export class DfsTests {
     private static graphJson = {
         "edges": [
             {"fromVertex" : "a", "toVertex" : "b"},
@@ -21,5 +22,6 @@ export class BfsTests {
         FTester.className=("BfsTests");
         FTester.msg("Edge Test").is(graph.numberOfEdges).equalTo(8);
 
+        var dfs = new DepthFirstSearch(graph, "a");
     }
 }

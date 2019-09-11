@@ -17,4 +17,7 @@ export class FTester {
     static equalTo(expected: any) : void {
         this.tester.equalTo(this.actual, expected, this.message);
     }
+    static existing() : void {
+        this.tester.exists(this.actual, this.message);
+    }
 }

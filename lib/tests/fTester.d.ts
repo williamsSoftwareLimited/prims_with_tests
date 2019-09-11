@@ -6,4 +6,5 @@ export declare class FTester {
     static is(actual: any): typeof FTester;
     static msg(msg: string): typeof FTester;
     static equalTo(expected: any): void;
+    static existing(): void;
 }
