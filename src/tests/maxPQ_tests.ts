@@ -17,7 +17,13 @@ export class MaxPQTests {
         FTester.msg("Check the size").is(pq.size()).equalTo(3);
 
         FTester.msg("The heap should have moved p below q").is(pq.delMax()).equalTo("q");
-
         FTester.msg("Check the size").is(pq.size()).equalTo(2);
+
+        pq.insert("q");
+        pq.insert("z");
+        pq.insert("t");
+
+        FTester.msg("The heap should have moved p below q").is(pq.delMax()).equalTo("z");
+        FTester.msg("Check the size").is(pq.size()).equalTo(4);
     }
 }

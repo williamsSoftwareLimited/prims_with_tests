@@ -1,6 +1,5 @@
 export declare class MaxPQ {
     private pq;
-    private n;
     constructor();
     isEmpty(): boolean;
     size(): number;
@@ -9,4 +8,5 @@ export declare class MaxPQ {
     private less;
     private exch;
     private swim;
+    private sink;
 }
