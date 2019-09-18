@@ -1,23 +1,37 @@
-import { Tester } from "./tester";
-
 export class FTester {
     static className: string = "";
-    static message: string = "";
-    private static tester: Tester = new Tester("");
+    private static message: string = "";
     private static actual: any;
+    static msg(message: string){
+        this.message=", "+message;
+        return this;
+    }
     static is(actual: any){
-        this.tester.className=this.className;
         this.actual = actual;
         return this;
     }
-    static msg(msg: string){
-        this.message=msg;
-        return this;
-    }
     static equalTo(expected: any): void {
-        this.tester.equalTo(this.actual, expected, this.message);
+        var operator="equal to";
+        if (this.actual!==expected)
+            operator="not " + operator;
+        console.log(`${this.className}: actual(${this.actual}) ${operator} expected(${expected})${this.message}`)
     }
     static existing() : void {
-        this.tester.exists(this.actual, this.message);
+        var operator="exist";
+        if (this.actual){
+            console.log(`${this.className} ${operator}s`);
+        } else {
+            console.log(`${this.className} doesn't ${operator}${this.message}`);
+        }
+    }
+    static throwing(func: any): void {
+        var operator = "thrown an error";
+        try{
+            func();
+            operator = "not " + operator;
+        } catch (e){ 
+            operator = `${operator}, ${e}`;
+        }
+        console.log(`${this.className} has ${operator}`);
     }
 }
